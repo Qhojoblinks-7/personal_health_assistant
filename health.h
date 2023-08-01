@@ -41,4 +41,35 @@ extern void beep();
 extern void startCountdownTimer(int duration);
 extern void waterIntakeReminder(int interval);
 extern void displayWaterIntakeChart(const int water_intake[], int num_entries);
+
+enum FitnessGoal
+{
+	WEIGHT_LOSS,
+	MUSCLE_GAIN,
+	OVERALL_FITNESS,
+	SPECIFIC_HEALTH_IMPROVEMENTS
+};
+extern enum FitnessGoal identifyFitnessGoal(const char* fitnessGoals);
+
+struct UserProfile
+{
+	int age;
+	char gender[10];
+	double weight;
+	double height;
+	char fitnessGoald[100];
+	char medicalCondition[200];
+	enum FitnessGoal fitnessGoal;
+};
+extern struct UserProfile getUserProfile(void);
+
+struct ExercisePlan
+{
+	char type[50];
+	int duration;
+	double intensity;
+};
+
+extern void fitnessAssessment(const struct UserProfile* user);
+extern void generateExercisePlan(enum FitnessGoal goal, struct ExercisePlan* plan);
 #endif
