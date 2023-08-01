@@ -6,7 +6,7 @@ Personal Health &amp; Fitness Assistant: Monitor health, track fitness, and get 
 ```markdown
 # Personal Health and Fitness Assistant
 
-![Health and Fitness Assistant](insert_image_url_here)
+Health and Fitness Assistant
 
 ## Overview
 
