@@ -49,7 +49,7 @@ To use the Personal Health and Fitness Assistant, follow these steps:
 
 1. Clone the repository to your local machine:
    ```
-   git clone https://github.com/Qhojoblinks-7/personal-health-fitness.git
+   https://github.com/Qhojoblinks-7/personal_health_assistant.git
    ```
 
 2. Compile the source code:
