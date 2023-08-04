@@ -22,26 +22,26 @@ void save_logs_to_file(const struct ExerciseLog* exercise_logs, int num_exercise
 	}
 
 	fprintf(saved_file, "Exercise Logs:\n");
-	fprintf(saved_filee, "--------------\n");
+	fprintf(saved_file, "--------------\n");
 
 	for (i = 0; i < num_exercise_logs; i++)
 	{
-		fprintf(file, "Activity: %s\n", exercise_logs[i].activity);
-		fprintf(file, "Duration: %.2f minutes\n", exercise_logs[i].duration);
-		fprintf(file, "Intensity: %.2f\n", exercise_logs[i].intensity);
-		fprintf(file, "--------------\n");
+		fprintf(saved_file, "Activity: %s\n", exercise_logs[i].activity);
+		fprintf(saved_file, "Duration: %.2f minutes\n", exercise_logs[i].duration);
+		fprintf(saved_file, "Intensity: %.2f\n", exercise_logs[i].intensity);
+		fprintf(saved_file, "--------------\n");
 	}
 
-	fprintf(file, "\nFood Logs:\n");
-	fprintf(file, "--------------\n");
+	fprintf(saved_file, "\nFood Logs:\n");
+	fprintf(saved_file, "--------------\n");
 
 	for (i = 0; i < num_food_logs; i++)
 	{
-		fprintf(file, "Food: %s\n", food_logs[i].food);
-		fprintf(file, "Calories: %.2f\n", food_logs[i].calories);
-		fprintf(file, "--------------\n");
+		fprintf(saved_file, "Food: %s\n", food_logs[i].food);
+		fprintf(saved_file, "Calories: %.2f\n", food_logs[i].calories);
+		fprintf(saved_file, "--------------\n");
 	}
 
-	fclose(file);
+	fclose(saved_file);
 	printf("Logs saved to 'health_logs.txt' successfully.\n");
 }

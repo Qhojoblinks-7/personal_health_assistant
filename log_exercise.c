@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "health.h"
-
+#include <string.h>
 
 /**
  * log_exercise - a function that tracks the number of exercise log
@@ -24,7 +24,7 @@ void log_exercise(struct ExerciseLog* exercise_logs, int* num_exercise_logs)
 	fgets(exercise_logs[*num_exercise_logs].activity, MAX_NAME_LENGTH, stdin);
 
 	int len = strlen(exercise_logs[*num_exercise_logs].activity);
-	if (len > 0 && exercise_logs[*num_exercise_logs].activity[len - 1] == '\n');
+	if (len > 0 && exercise_logs[*num_exercise_logs].activity[len - 1] == '\n')
 	{
 		exercise_logs[*num_exercise_logs].activity[len - 1] = '\0';
 	}
@@ -36,6 +36,6 @@ void log_exercise(struct ExerciseLog* exercise_logs, int* num_exercise_logs)
 
 	printf("Enter the intensity of the activity (0-10): ");
 	scanf("%lf", &exercise_logs[*num_exercise_logs].intensity);
-	clear_input_buffer();
+	while ((c = getchar()) != '\n' && c != EOF);
 	(*num_exercise_logs)++;
 }

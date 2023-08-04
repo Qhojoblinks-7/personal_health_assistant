@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "health.h"
+#include <string.h>
 
 /**
  * load_logs_from_file - a function that helps review

@@ -11,7 +11,7 @@
 
 void display_food_chart(const struct FoodLog* food_logs, int num_food_logs)
 {
-	FILE *gnuplot = popen("gnuplot", "w");
+	FILE *gnuplot = fopen("gnuplot", "w");
 	if (!gnuplot)
 	{
 		printf("Error: Gnuplot not found or could not be opened.\n");
@@ -36,5 +36,5 @@ void display_food_chart(const struct FoodLog* food_logs, int num_food_logs)
 	fprintf(gnuplot, "e\n");
 
 	fflush(gnuplot);
-	pclose(gnuplot);
+	fclose(gnuplot);
 }

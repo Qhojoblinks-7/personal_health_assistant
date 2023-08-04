@@ -1,32 +1,23 @@
-# Compiler
+# Makefile
+
 CC = gcc
+CFLAGS = -Wall -Wextra -std=c99
+LDFLAGS = -L/usr/lib -lncurses -lm
+INCLUDES = -I/usr/include
 
-# Compiler flags
-CFLAGS = -Wall -Wextra -std=c11
+SRCS = main.c welcome.c load_logs_from_file.c create_profile.c calculate_bmi.c classify_health_status.c log_exercise.c log_food.c view_exercise_logs.c view_food_logs.c display_exercise_chart.c display_food_chart.c daily_calorie_intake.c display_fitness_progress.c nutritional_habits.c exercise_recommendations.c display_educational_content.c save_logs_to_file.c
 
-# Source files
-SRCS = main.c
-SRCS += welcome.c
-
-# Header files
-HDRS = health.h
-
-# Object files
 OBJS = $(SRCS:.c=.o)
 
-# Executable name
-EXEC = health_assistant
+TARGET = health_assistant
 
-.PHONY: all clean
+all: $(TARGET)
 
-all: $(EXEC)
+$(TARGET): $(OBJS)
+		$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(EXEC): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
-
-$(OBJS): $(SRCS) $(HDRS)
-	$(CC) $(CFLAGS) -c $(SRCS)
+%.o: %.c
+		$(CC) $(CFLAGS) $(INCLUDES) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS) $(EXEC)
-
+		rm -f $(OBJS) $(TARGET)

@@ -11,7 +11,7 @@
 
 void display_exercise_chart(const struct ExerciseLog* exercise_logs, int num_exercise_logs)
 {
-	FILE *gnuplot = popen("gnuplot", "w");
+	FILE *gnuplot = fopen("gnuplot", "w");
 
 	if (!gnuplot)
 	{
@@ -34,5 +34,5 @@ void display_exercise_chart(const struct ExerciseLog* exercise_logs, int num_exe
 	fprintf(gnuplot, "e\n");
 
 	fflush(gnuplot);
-	pclose(gnuplot);
+	fclose(gnuplot);
 }

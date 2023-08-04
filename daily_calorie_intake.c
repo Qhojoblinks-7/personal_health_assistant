@@ -10,7 +10,7 @@
 
 double calculate_daily_calorie_intake(const struct Profile* profile) {
     double bmr;
-    if (profile->gender == M) {
+    if (profile->gender == MALE) {
         bmr = 88.362 + (13.397 * profile->weight) + (4.799 * profile->height) - (5.677 * profile->age);
     } else {
         bmr = 447.593 + (9.247 * profile->weight) + (3.098 * profile->height) - (4.330 * profile->age);

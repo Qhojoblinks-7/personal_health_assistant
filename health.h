@@ -32,6 +32,7 @@ struct Profile {
     char gender;
     double weight;
     double height;
+    ActivityLevel activity_level;
 };
 
 struct ExerciseLog {
@@ -48,7 +49,7 @@ struct FoodLog {
 /* Function prototypes*/
 void print_welcome_message();
 void create_profile(struct Profile* profile);
-void calculate_bmi(const struct Profile* profile);
+double calculate_bmi(const struct Profile* profile);
 void classify_health_status(double bmi);
 void log_exercise(struct ExerciseLog* exercise_logs, int* num_exercise_logs);
 void log_food(struct FoodLog* food_logs, int* num_food_logs);
@@ -64,9 +65,9 @@ int load_profile(struct Profile* profile);
 void load_logs_from_file(struct ExerciseLog* exercise_logs, int* num_exercise_logs, struct FoodLog* food_logs, int* num_food_logs);
 /*Function prototypes for text-based charts*/
 void display_progress_bar(const char* title, int value, int max_value);
-void display_line_chart(const char* title, const int* data, int num_data_points);
-void display_pie_chart(const char** labels, const double* data, int num_data_points);
+void display_exercise_chart(const struct ExerciseLog* exercise_logs, int num_exercise_logs);
 double calculate_daily_calorie_intake(const struct Profile* profile);
-
+void view_exercise_logs(const struct ExerciseLog* exercise_logs, int num_exercise_logs);
+void view_food_logs(const struct FoodLog* food_logs, int num_food_logs);
 #endif
 

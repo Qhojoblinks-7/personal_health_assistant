@@ -21,7 +21,7 @@ void view_exercise_logs(const struct ExerciseLog* exercise_logs, int num_exercis
 
 	int i;
 
-	for (i = 0; i < num_exercise_log; i++)
+	for (i = 0; i < num_exercise_logs; i++)
 	{
 		printf("Activity: %s\n", exercise_logs[i].activity);
 		printf("Duration: %.2f minutes\n", exercise_logs[i].duration);

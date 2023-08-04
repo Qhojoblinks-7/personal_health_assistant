@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "heatlth.h"
+#include "health.h"
 
 /**
  * view_food_logs - function will display all the logged food

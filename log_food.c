@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "health.h"
+#include <string.h>
 
 /**
  * log_food - a function that keeps track of food consumtion
@@ -11,7 +12,7 @@ void log_food(struct FoodLog* food_logs, int* num_food_logs)
 {
 	int c;
 
-	(*num_food_logs >= MAX_FOOD_LOGS)
+	if (*num_food_logs >= MAX_FOOD_LOGS)
 	{
 		printf("Food log is full. Cannot log more food entries.\n");
 		return;

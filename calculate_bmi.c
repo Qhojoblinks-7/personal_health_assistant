@@ -6,7 +6,7 @@
  * @profile: a pointer to the structure profile
  */
 
-void calculate_bmi(const struct Profile* profile)
+double calculate_bmi(const struct Profile* profile)
 {
 	double height_meters = profile->height / 100.0;/*from height to meters*/
 	double bmi = profile->weight / (height_meters * height_meters);
@@ -19,8 +19,9 @@ void calculate_bmi(const struct Profile* profile)
 	printf("Gender: %c\n", profile->gender);
 	printf("Weight: %.2f kg\n", profile->weight);
 	printf("Height: %.2f cm\n", profile->height);
-	printf("BMI: %.2f\n", bmi);
-	printf("--------------------\n");
+	printf("Your BMI: %.2f", bmi);
+
 
 	classify_health_status(bmi);
+	return (0);
 }

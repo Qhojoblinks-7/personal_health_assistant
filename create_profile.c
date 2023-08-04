@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "health.h"
+#include <string.h>
 
 /**
  * create_profile - a function that creates the profile
@@ -35,11 +36,11 @@ void create_profile(struct Profile* profile)
 	scanf(" %c", &profile->gender);
 	while ((c = getchar()) != '\n' && c != EOF);
 
-	printf("Enter your weigth (kg): ");
-	scanf("%lf", &profile->weigth);
+	printf("Enter your weight (kg): ");
+	scanf("%lf", &profile->weight);
 	while ((c = getchar()) != '\n' && c != EOF);
 
 	printf("Enter your height (cm): ");
-	scanf("%lf", &profile->heigth);
+	scanf("%lf", &profile->height);
 	while ((c = getchar()) != '\n' && c != EOF);
 }
