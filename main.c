@@ -1,111 +1,45 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include "health.h"
-#include "graph.h"
-#define MAX_ENTERS 24
-
-/**
- * This main function displays the interface of the application
- * Returns: an int.
- */
+#include <health.h>
 
 int main(void)
 {
-	struct BMI bmi_data;
-	struct Exercise exercise_data;
-	struct Meal_data;
-	struct WaterIntake water_data[MAX_ENTRIES];
-	int choice;
+	struct Profile profile;
+	struct ExerciseLog exercise_logs[MAX_EXERCISE_LOGS];
+	int num_exercise_logs = 0;
+	struct FoodLog food_logs[MAX_FOOD_LOGS];
+	int num_food_logs = 0;
 
-	do
+	print_welcome_message();
 
-	{
-		/*display menu options*/
-		printf("\nPersonal Health and Fitness Assistment\n");
-		printf("====================================\n");
-		printf("1. calculate BMI\n");
-		printf("2. log Exercise\n");
-		printf("3. log Meal\n");
-		printf("4. log water Intake\n");
-		printf("5. Display Water Intake Chart\n");
-		printf("0. Exit\n");
-		Printf("Please enter you preference: ");
+	load_logs_from_file(exercise_logs, &num_exercise_logs, food_logs, &num_food_logs);
 
-		scanf("%d", &choice);
+	create_profile(&profile);
 
-		switch (choice)
-		{
-			/*BMI calculation*/
-			case 1:
-				printf("\n Enter your height (in meters): ");
-				scanf("%lf" bmi_data.height);
+	calculate_bmi(&profile);
 
-				printf("Enter your weight (in kilogrames): ");
-				scanf("&lf", &bmi_data.weight);
+	log_exercise(exercise_logs, &num_exercise_logs);
 
-				double bmi_result = calculateBMI(bmi_data);
-				printf("\nYour BMI: %.2f\n", bmi_result);
-				break;
-			case 2:
-				/*fitness Tracking */
-				printf("Enter the type of exercise: ");
-				scanf("%s", ecercise_data.type);
+	log_food(food_logs, &num_food_logs);
 
-				printf("Enter the exercise duration (in minutes): ");
-				scanf("%d", &exercise_data.duration);
+	view_exercise_logs(exercise_logs, num_exercise_logs);
 
-				printf("Enter exercise intensity: ");
-				scanf("%lf", &ecercise_data.intensity);
+	view_food_logs(food_logs, num_food_logs);
 
-				logExercise(exercise_data);
-				printf("\nExercise logged successfully!\n");
-				break;
-			case 3:
-				/*Nutrition logging*/
-				printf("\nEnter the name of the meal or snack: ");
-				scanf("%s"meal_data.name);
+	display_exercise_chart(exercise_logs, num_exercise_logs);
 
-				printf("Enter calories in the meal or snack: ");
-				scanf("%d", meal_data.calories);
+	display_food_chart(food_logs, num_food_logs);
 
-				printf("Enter the protein content in grams: ");
-				scanf("%lf", &meal_data.protein);
+	save_logs_to_file(exercise_logs, num_exercise_logs, food_logs, num_food_logs);
 
-				printf("Enter the carbohydrate content in grams: ");
-				scanf("%lf", &meal_data.carbohydrates);
+	double daily_calories = calculate_daily_calorie_intake(&profile);
+	printf("Your recommended daily calorie intake is: %.2f calories\n", daily_calories);
+	display_fitness_progress(exercise_logs, num_exercise_logs, food_logs, num_food_logs);
 
-				printf("Enter the fats content in grams: ");
-				scanf("%lf", &meal_data.fats);
+	display_nutritional_habits(food_logs, num_food_logs);
 
-				logMeal(meal_data);
-				printf("\nMeal logged successfully!\n");
-				break;
-			case 4:
-				/*Water intake tracking */
-				for (int i = 0; i < MAX_ENTRIES; i++)
-				{
-					printf("\nEnter the amount of water consumed (in ml): ");
-					scanf("%d", &water_data[i].amount);
+	provide_exercise_recommendations(&profile);
 
-					printf("Enter the time of water consumption (e.g., \"08:00 AM\"): ");
-					scanf("%s", water_data[i].time)
-				}
-				logWaterIntake(water_data);
-				printf("\nWater intake logged successfully!\n");
-				break;
-			case 5:
-				displayWaterIntakeChart(water_data, MAX_ENTRIES);
-				break;
-			case 0:
-				/*Exit the program*/
-				printf("\nExiting the Personal Health and Fitness Assistant. Goodbye!\n");
-				break;
-			default:
-				printf("\nInvalid choice. Please try again.\n");
-				break;
-		}
-	}
-	while (choice != 0);
+	display_educational_content();
+
 	return (0);
 }

@@ -1,51 +1,35 @@
-#ifndef HEALTH__H
-#define HEALTH__H
+#ifndef HEALTH_ASSISTANT_H
+#define HEALTH_ASSISTANT_H
 
-/*Define necessary constants*/
+// Define necessary constants
 #define MAX_NAME_LENGTH 50
 #define MAX_EXERCISE_LOGS 100
 #define MAX_FOOD_LOGS 100
 
-#ifndef HEALTH_ASSISTANT_ENUMS
-#define HEALTH_ASSISTANT_ENUMS
-
-typedef enum {
-    MALE,
-    FEMALE
-} Gender;
-
-// Custom enum to represent the activity level of the user
-typedef enum {
-    SEDENTARY,
-    LIGHTLY_ACTIVE,
-    MODERATELY_ACTIVE,
-    VERY_ACTIVE,
-    EXTRA_ACTIVE
-} ActivityLevel;
-
-#endif // HEALTH_ASSISTANT_ENUMS
-
-/*Define data structures*/
+// Define data structures
 struct Profile {
     char name[MAX_NAME_LENGTH];
     int age;
     char gender;
     double weight;
     double height;
+    // Add more fields related to fitness goals if needed
 };
 
 struct ExerciseLog {
     char activity[MAX_NAME_LENGTH];
-    double duration; /*in minutes*/
+    double duration; // in minutes
     double intensity;
+    // Add more fields related to exercise logs if needed
 };
 
 struct FoodLog {
     char food[MAX_NAME_LENGTH];
     double calories;
+    // Add more fields related to food logs if needed
 };
 
-/* Function prototypes*/
+// Function prototypes
 void print_welcome_message();
 void create_profile(struct Profile* profile);
 void calculate_bmi(const struct Profile* profile);
@@ -61,12 +45,13 @@ void save_profile(const struct Profile* profile);
 void save_exercise_logs(const struct ExerciseLog* exercise_logs, int num_exercise_logs);
 void save_food_logs(const struct FoodLog* food_logs, int num_food_logs);
 int load_profile(struct Profile* profile);
-void load_logs_from_file(struct ExerciseLog* exercise_logs, int* num_exercise_logs, struct FoodLog* food_logs, int* num_food_logs);
-/*Function prototypes for text-based charts*/
+int load_exercise_logs(struct ExerciseLog* exercise_logs, int* num_exercise_logs);
+int load_food_logs(struct FoodLog* food_logs, int* num_food_logs);
+
+// Function prototypes for text-based charts
 void display_progress_bar(const char* title, int value, int max_value);
 void display_line_chart(const char* title, const int* data, int num_data_points);
 void display_pie_chart(const char** labels, const double* data, int num_data_points);
-double calculate_daily_calorie_intake(const struct Profile* profile);
 
-#endif
+#endif // HEALTH_ASSISTANT_H
 
