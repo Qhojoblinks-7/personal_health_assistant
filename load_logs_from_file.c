@@ -66,7 +66,7 @@ void load_logs_from_file(struct ExerciseLog* exercise_logs, int* num_exercise_lo
 
             /* Add the log to the food_logs array*/
             if (*num_food_logs < MAX_FOOD_LOGS) {
-                strncpy(food_logs[*num_food_logs].food, food, MAX_NAME_LENGTH);
+                strncpy(food_logs[*num_food_logs].name, food, MAX_NAME_LENGTH);
                 food_logs[*num_food_logs].calories = calories;
                 (*num_food_logs)++;
             }

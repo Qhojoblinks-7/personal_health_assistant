@@ -1,16 +1,8 @@
 #include <stdio.h>
-#include <ncurses.h>>
 #include "health.h"
 
 int main(void)
 {
-	/*Initialize ncurses*/
-	initscr();
-	cbreak();
-	noecho();
-	keypad(stdscr, TRUE);
-	curs_set(0);
-
 	/*Load logs from file*/
 	struct ExerciseLog exercise_logs[MAX_EXERCISE_LOGS];
 	int num_exercise_logs = 0;
@@ -31,25 +23,24 @@ int main(void)
 	do
 
 	{
-		clear();/*Clear the screen before displaying the menu*/
 
-		printw("Health Assistant Menu\n");
-		printw("----------------------\n");
-		printw("1. Log Exercise\n");
-		printw("2. Log Food Intake\n");
-		printw("3. View Exercise Logs\n");
-		printw("4. View Food Logs\n");
-		printw("5. Display Exercise Chart\n");
-		printw("6. Display Daily Calorie Intake\n");
-		printw("7. Display Fitness Progress\n");
-		printw("8. Display Nutritional Habits\n");
-		printw("9. Provide Exercise Recommendations\n");
-		printw("10. Display Educational Content\n");
-		printw("0. Exit\n");
-		printw("----------------------\n");
-		printw("Enter your choice: ");
+		printf("Health Assistant Menu\n");
+		printf("----------------------\n");
+		printf("1. Log Exercise\n");
+		printf("2. Log Food Intake\n");
+		printf("3. View Exercise Logs\n");
+		printf("4. View Food Logs\n");
+		printf("5. Display Exercise Chart\n");
+		printf("6. Display Daily Calorie Intake\n");
+		printf("7. Display Fitness Progress\n");
+		printf("8. Display Nutritional Habits\n");
+		printf("9. Provide Exercise Recommendations\n");
+		printf("10. Display Educational Content\n");
+		printf("0. Exit\n");
+		printf("----------------------\n");
+		printf("Enter your choice: ");
 
-		scanw("%d", &choice);
+		scanf("%d", &choice);
 
 		switch (choice)
 		{
@@ -86,20 +77,18 @@ int main(void)
 			case 0:
 				break;
 			default:
-				printw("Invalid choice. Please try again.\n");
+				printf("Invalid choice. Please try again.\n");
 				break;
 		}
 
 		if (choice != 0)
 		{
-			printw("Press any key to continue...");
-			refresh();
-			getch();
+			printf("Press any key to continue...");
+			getchar();
 		}
 	}while (choice != 0);
 
 	load_logs_from_file(exercise_logs, &num_exercise_logs, food_logs, &num_food_logs);
-	endwin();
 
 	return (0);
 }

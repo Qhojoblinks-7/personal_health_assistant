@@ -42,7 +42,7 @@ struct ExerciseLog {
 };
 
 struct FoodLog {
-    char food[MAX_NAME_LENGTH];
+    char name[MAX_NAME_LENGTH];
     double calories;
 };
 
