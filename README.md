@@ -54,8 +54,7 @@ To use the Personal Health and Fitness Assistant, follow these steps:
 
 2. Compile the source code:
    ```
-   cd personal-health-fitness/src
-   gcc -o health_fitness_assistant main.c fitness.c nutrition.c bmi.c -lm
+   make
    ```
 
 3. Run the executable:
