@@ -29,18 +29,22 @@ void create_profile(struct Profile* profile)
 
 
 	printf("Enter your age: ");
+	fflush(stdout);
 	scanf("%d", &profile->age);
 	while ((c = getchar()) != '\n' && c != EOF);
 
 	printf("Enter your gender (M/F): ");
+	fflush(stdout);
 	scanf(" %c", &profile->gender);
 	while ((c = getchar()) != '\n' && c != EOF);
 
 	printf("Enter your weight (kg): ");
+	fflush(stdout);
 	scanf("%lf", &profile->weight);
 	while ((c = getchar()) != '\n' && c != EOF);
 
 	printf("Enter your height (cm): ");
+	fflush(stdout);
 	scanf("%lf", &profile->height);
 	while ((c = getchar()) != '\n' && c != EOF);
 }
