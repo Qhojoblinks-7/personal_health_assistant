@@ -1,84 +1,80 @@
-# personal_health_assistant
-Personal Health &amp; Fitness Assistant: Monitor health, track fitness, and get nutrition insights. BMI calculator, exercise tracking, nutrition logging, and educational content. Empower your well-being.
+# Personal Health Assistant
 
-
-
-```markdown
-# Personal Health and Fitness Assistant
-
-Health and Fitness Assistant
-
-## Overview
-
-The Personal Health and Fitness Assistant is a command-line-based application designed to help users monitor their health, track fitness activities, and receive personalized nutrition and exercise recommendations. This project aims to promote a healthier lifestyle by providing users with valuable tools and insights to achieve their health and fitness goals.
+The Health Assistant is a simple text-based program that helps users monitor their health and fitness progress. It allows users to create a profile, log their exercise and food intake, calculate their Body Mass Index (BMI), and get personalized recommendations for a healthy lifestyle.
 
 ## Features
 
-- BMI Calculator and Health Assessment: Calculate the Body Mass Index (BMI) based on the user's height and weight. Additionally, provide a health assessment by analyzing the user's BMI, age, and other health-related factors. Offer tailored advice on maintaining a healthy lifestyle.
+1. **Create Profile**: The program allows users to create a profile by providing their name, age, gender, weight, and height.
 
-- Fitness Assessment: Based on the user's profile and fitness goals, assess their current fitness level. Provide personalized exercise recommendations to help users reach their fitness objectives.
+2. **Calculate BMI**: After creating a profile, the program automatically calculates the user's Body Mass Index (BMI) based on their weight and height.
 
-- Fitness Tracking: Log and track daily exercise routines, including the type of exercise, duration, and intensity. Users can view their fitness progress, such as calories burned and steps taken, to stay motivated and achieve their fitness objectives.
+3. **Log Exercise**: Users can log their exercise activities, including the activity name, duration, and intensity.
 
-- Nutrition Tracker: Record daily meals and snacks to analyze nutritional intake. The assistant provides insights into users' dietary habits, including calorie intake, macronutrient distribution, and recommendations for a balanced diet.
+4. **Log Food Intake**: Users can log their food intake, including the name of the food and its calorie count.
 
-- Exercise Recommendations: Generate personalized exercise plans based on the user's fitness goals. The assistant recommends specific exercise types, durations, and intensities to help users achieve their fitness targets.
+5. **View Exercise Logs**: Users can view a summary of their exercise logs, including the total number of logs and the details of each log.
 
-- Educational Content: Access a library of educational articles and tips on nutrition, exercise, mental health, and overall well-being. Users can stay informed and make informed decisions about their health and lifestyle.
+6. **View Food Logs**: Users can view a summary of their food logs, including the total number of logs and the details of each log.
 
-- Motivation: Provide periodic motivational messages or reminders to encourage users to stick to their health and fitness goals.
+7. **Display Exercise Chart**: The program displays a line chart showing the user's exercise progress over time.
 
-- Data Visualization (Optional): If you're feeling ambitious, incorporate basic data visualization using ASCII characters or simple text-based graphs to represent the user's progress over time.
+8. **Calculate Daily Calorie Intake**: The program calculates the user's recommended daily calorie intake based on their profile and activity level.
 
-- Security and Privacy: Implement measures to ensure the security and privacy of user data, as health-related information is sensitive.
+9. **Display Progress Bar**: Users can see their daily calorie intake represented as a progress bar, making it easier to visualize their progress towards their goal.
 
-- User-Friendly Interface: Design a user-friendly and intuitive command-line interface that allows easy navigation and interaction with the application.
+10. **Display Nutritional Habits**: The program provides users with information about their nutritional habits based on their food logs.
 
-- Optional: Gamification: Add gamification elements, such as earning badges or rewards for achieving specific health and fitness milestones, to make the experience more engaging.
-## Motivation
+11. **Provide Exercise Recommendations**: Users receive personalized exercise recommendations based on their BMI and fitness goals.
 
-The Personal Health and Fitness Assistant was inspired by a passion for promoting well-being and empowering individuals to take charge of their health. With a user-friendly command-line interface, this application seeks to provide accessible health and fitness monitoring for everyone, regardless of their technical expertise.
-
-## Technologies
-
-The application is developed using C programming on the Linux platform, leveraging the power and flexibility of the command-line environment.
-
-## Installation
-
-To use the Personal Health and Fitness Assistant, follow these steps:
-
-1. Clone the repository to your local machine:
-   ```
-   https://github.com/Qhojoblinks-7/personal_health_assistant.git
-   ```
-
-2. Compile the source code:
-   ```
-   make
-   ```
-
-3. Run the executable:
-   ```
-   ./health_assistant
-   ```
+12. **Display Educational Content**: Users can access educational content on various health and fitness topics.
 
 ## Usage
 
-1. Upon launching the application, create your user profile with age, gender, weight, height, and fitness goals.
+1. **Compile the Program**: Before running the program, compile it using the following command:
 
-2. Use the provided options to access different features: BMI calculator, fitness tracking, nutrition logging, and educational content.
+   ```bash
+   gcc -Wall -Wextra -std=c99 -o health_assistant main.c calculate_bmi.c classify_health_status.c create_profile.c daily_calorie_intake.c display_educational_content.c display_exercise_chart.c display_food_chart.c display_fitness_progress.c display_line_chart.c display_nutritional_habits.c exercise_recommendations.c log_exercise.c log_food.c load_logs_from_file.c save_logs_to_file.c view_exercise_logs.c view_food_logs.c welcome.c -lm -lncurses
+   ```
+   or after cloning the repo u can use the make command since the repo contains a Makefile.
 
-3. Log your daily exercise routines and nutrition intake to monitor your progress.
+   Note: Make sure you have the ncurses library installed on your system.
 
-## Contributing
+2. **Run the Program**: Execute the program with the following command:
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before making a contribution.
+   ```bash
+   ./health_assistant
+   ```
+
+3. **User Interaction**: The program will display a simple text-based user interface using ncurses. Use the arrow keys or other function keys to interact with the interface and select various options provided by the program.
+
+4. **Create Profile**: Follow the on-screen prompts to create your profile by entering your name, age, gender, weight, and height.
+
+5. **Log Exercise and Food Intake**: Log your exercise activities and food intake to keep track of your fitness progress.
+
+6. **View Logs**: You can view a summary of your exercise and food logs to review your past data.
+
+7. **Calculate BMI**: The program will automatically calculate your BMI based on your weight and height.
+
+8. **Daily Calorie Intake**: Get information about your recommended daily calorie intake based on your profile and activity level.
+
+9. **Nutritional Habits**: The program provides feedback on your nutritional habits based on your food logs.
+
+10. **Exercise Recommendations**: Receive personalized exercise recommendations to achieve your fitness goals.
+
+11. **Educational Content**: Access educational content on various health and fitness topics.
+
+12. **Exit**: To exit the program, use the provided option in the menu.
+
+## Note
+
+This program is a simple health assistant and should not be considered a substitute for professional medical advice. It is meant for educational purposes and to help users monitor their health and fitness progress.
+
+## Contributors
+
+This project was created by Immanuel Eshun Quansah and is open for contributions. Feel free to fork the repository and submit pull requests with improvements or new features.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any inquiries or feedback, please email us at immanueleshun9@gmail.com.
-```
+---
