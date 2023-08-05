@@ -60,7 +60,7 @@ To use the Personal Health and Fitness Assistant, follow these steps:
 
 3. Run the executable:
    ```
-   ./health_fitness_assistant
+   ./health_assistant
    ```
 
 ## Usage
